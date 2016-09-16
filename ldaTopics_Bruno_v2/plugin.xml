@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<plugin>	
+<!--    name="LDATopics"-->
+<!--	id="edu.wm.ldatopics"-->
+<!--	version="0.0.0"-->
+<!--  	provider-name="Eclipse.org">-->
+<!--	-->
+<!--    <requires>-->
+<!--		<import plugin="org.eclipse.core.resources"/>-->
+<!--        <import plugin="org.eclipse.ui"/>-->
+<!--    </requires>-->
+<!---->
+<!--    <runtime>-->
+<!--		<library name="ldatopics.jar"/>-->
+<!--    </runtime>-->
+	
+<!--    <extension point = "org.eclipse.ui.actionSets">-->
+<!--        <actionSet-->
+<!--            id="org.eclipse.examples.helloworld.HelloWorldActionSet"-->
+<!--            label="Hello World"-->
+<!--	    visible="true"-->
+<!--	    description="The action set for the Eclipse Hello World example">-->
+<!--	    <menu-->
+<!--		id="org.eclipse.examples.helloworld.HelloWorldMenu"-->
+<!--		label="Samples">-->
+<!--		<separator name="samples"/>-->
+<!--	    </menu>-->
+<!--	    <action id="org.eclipse.examples.helloworld.actions.HelloWorldAction"-->
+<!--		menubarPath="org.eclipse.examples.helloworld.HelloWorldMenu/samples"-->
+<!--		toolbarPath="Normal"			-->
+<!--		label="Hello World"-->
+<!--		tooltip="Press to see a message"-->
+<!--		icon="icons/helloworld.gif"-->
+<!--		class="org.eclipse.examples.helloworld.HelloWorldAction"/>-->
+<!--        </actionSet>-->
+<!--    </extension>-->
+	 
+	 <extension point="org.eclipse.ui.views">
+	      <category
+	           id="edu.wm.LDATopics"
+	            name="TopicXP"/>
+	 <!--     <view
+	           category="edu.wm.LDATopics"
+	            class="edu.wm.LDATopics.gui.TableView.TableView"
+	            id="edu.wm.ldatopics.gui.tableview"
+	            name="LDA Table View (for debuging)"/>
+	    -->  
+	      <view
+	           category="edu.wm.LDATopics"
+	            class="edu.wm.LDATopics.gui.TwoDimensionalView"
+	            id="edu.wm.ldatopics.gui.twodimensionalview"
+	            icon="icons/table.png"
+	            name="LDA Exploration View"/>
+	   </extension>
+	   
+	    <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="org.malnatij.SVPlugin.popupMenu"
+            objectClass="org.eclipse.core.resources.IProject">
+         <action
+               class="edu.wm.LDATopics.gui.actions.AnalyzeProjectActionDelegate"
+               enablesFor="1"
+               icon="icons/table.png"
+               id="org.malnatij.svplugin.AnalyzeProject"
+               label="Explore with LDA"
+               menubarPath="additions"
+               tooltip="Analyze the selected project using LDA Topics"/>
+      </objectContribution>
+   </extension>
+</plugin>

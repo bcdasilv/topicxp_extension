@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="plugin_export" name="build">
+	<target name="plugin_export">
+		<pde.exportPlugins destination="/Users/tcsava/Dropbox/summer 2010 research" exportSource="true" exportType="directory" plugins="edu.wm.topicxp" useJARFormat="true"/>
+	</target>
+</project>
